@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:tune_player_app/models/tune_model.dart';
 
 class TuneItem extends StatelessWidget {
-  const TuneItem({super.key, required this.color, this.onTap});
+  const TuneItem({super.key, required this.tune, });
 
-  final Color color;
-  final Function()? onTap;
+  final TuneModel tune;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onTap: onTap,
-        child: Container(color: color,),
+        onTap: () {
+          tune.playSound();
+        },
+        child: Container(color: tune.color),
       ),
     );
   }
